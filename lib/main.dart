@@ -28,9 +28,13 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 58, 89, 183),
+        ),
       ),
-      home: const MyHomePage(title: 'Hello word (Actividad 3.3)'),
+      home: const MyHomePage(
+        title: 'Uso de widgets, Text, Row, Column, Stack y Container',
+      ),
     );
   }
 }
@@ -104,10 +108,41 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Text("1. Ejemplo de Widget de texto"),
+            const Row(
+              children: <Widget>[
+                Expanded(
+                  child: Text(
+                    'Este es un ejemplo de Row que se encuentra dentro de una Column',
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    'Elementos acomodados en una fila',
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Expanded(child: FittedBox(child: FlutterLogo())),
+              ],
+            ),
+
+            // const Text('Tienes que presionar el botón muchas veces:'),
+            // Text(
+            //   '$_counter',
+            //   style: Theme.of(context).textTheme.headlineMedium,
+            // ),
+            const Text('Este texto esta dentro de una columna'),
+            const Text('Este texto esta dentro de una columna también'),
+            const Text('Texto en la columna'),
+            const Text("Este texto se encuentra dentro de la columna tmb"),
+
+            // ↓ Add this.
+            ElevatedButton(
+              onPressed: () {
+                print('button pressed!');
+              },
+              child: Text('Este es un botón'),
             ),
           ],
         ),
